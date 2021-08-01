@@ -44,9 +44,11 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consulta de proveedores");
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
+        botonNuevoProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addUser24x24.png"))); // NOI18N
         botonNuevoProveedor.setText("Nuevo Proveedor");
 
         txbBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -55,6 +57,7 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
             }
         });
 
+        botonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search32x32.png"))); // NOI18N
         botonBuscar.setText("Buscar");
         botonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -62,6 +65,7 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
             }
         });
 
+        botonModificarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/alterUser24x24.png"))); // NOI18N
         botonModificarProveedor.setText("Modificar Proveedor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -73,8 +77,8 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
                 .addComponent(botonNuevoProveedor)
                 .addGap(28, 28, 28)
                 .addComponent(botonModificarProveedor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonBuscar)
                 .addGap(13, 13, 13))
@@ -141,45 +145,13 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
             }
     }//GEN-LAST:event_txbBuscarKeyPressed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultaProveedores().setVisible(true);
-            }
-        });
-    }
 
     @Override
     public void iniciar() {
         ConsultaProveedores consultaProveedores = new ConsultaProveedores();
         consultaProveedores.setVisible(true);
+        consultaProveedores.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
         ControladorConsultaProveedores controladorConsultaProveedores = new ControladorConsultaProveedores(consultaProveedores);
         consultaProveedores.consultarTabla();
         
@@ -219,9 +191,6 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
         }        
     }
     
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton botonBuscar;
@@ -232,5 +201,40 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
     public javax.swing.JTable jTable1;
     public javax.swing.JTextField txbBuscar;
     // End of variables declaration//GEN-END:variables
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ConsultaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ConsultaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ConsultaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ConsultaProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ConsultaProveedores().setVisible(true);
+            }
+        });
+    }
 }

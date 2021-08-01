@@ -45,9 +45,11 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consulta de materiales reciclados");
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
+        botonNuevoMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add24x24.png"))); // NOI18N
         botonNuevoMaterial.setText("Nuevo Material");
 
         txbBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -56,6 +58,7 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
             }
         });
 
+        botonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search32x32.png"))); // NOI18N
         botonBuscar.setText("Buscar");
         botonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -63,6 +66,7 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
             }
         });
 
+        botonModificarMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit24x24.png"))); // NOI18N
         botonModificarMaterial.setText("Modificar Material");
         botonModificarMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +84,7 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
                 .addGap(51, 51, 51)
                 .addComponent(botonModificarMaterial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonBuscar)
                 .addGap(23, 23, 23))
@@ -94,7 +98,7 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
                     .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonBuscar)
                     .addComponent(botonModificarMaterial))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTable1.setAutoCreateRowSorter(true);
@@ -190,6 +194,7 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
     public void iniciar() {
         ConsultaMateriales consultaMateriales = new ConsultaMateriales();
         consultaMateriales.setVisible(true);
+        consultaMateriales.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
         ControladorConsultaMateriales controladorConsultaMateriales = new ControladorConsultaMateriales(consultaMateriales);
         consultaMateriales.consultarTabla();
         

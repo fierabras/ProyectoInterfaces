@@ -38,7 +38,7 @@ public class ControladorConsultaProveedores implements ActionListener{
         if (consultaProveedores.botonNuevoProveedor.isFocusOwner()){
             IFabrica iFabrica = GeneradorFabricas.getFabrica("proveedores");
             IVista iVistaP = iFabrica.crearVista();
-            iVistaP.iniciar();            
+            iVistaP.iniciar();       
         }
         if (consultaProveedores.botonModificarProveedor.isFocusOwner()){
             IFabrica iFabrica = GeneradorFabricas.getFabrica("proveedores");
