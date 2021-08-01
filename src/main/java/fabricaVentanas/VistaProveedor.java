@@ -1,16 +1,28 @@
+/*
+ * Esta clase despliega una ventana para el registro o modificacion de un proveedor
+ */
 package fabricaVentanas;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Autor: Jesus Armando Mendoza Romero
+ * a171117
+ * Ingenieria en Software Virtual
+ * Materia: Diseño de Intefases
+ * Docente: Ing.Mario Andres Cuevas Gutierrez
+ */
+
 public class VistaProveedor extends javax.swing.JFrame implements IVista {
 
-    
+    //constructor
     public VistaProveedor() {
         initComponents();
     }
 
+    // codigo autogenerado
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -153,44 +165,58 @@ public class VistaProveedor extends javax.swing.JFrame implements IVista {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Controlador de acciones del boton guardar, solicita la conexion a la base de datos
+    // y envía la orden para la insercion del registro
     private void botonGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonGuardarMouseClicked
-
+        if((txbNombre.getText().isEmpty())||(txbfolioId.getText().isEmpty())){
+            JFrame frame = null;
+            JOptionPane.showMessageDialog(frame, "Debes llenar todos los datos para continuar", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        } 
+        
         ConexionSQL conn = ConexionSQL.getConexionSQL();
         String cmd = "INSERT INTO PROVEEDORES (NOMBRE,TIPOID,FOLIOID) VALUES ('" + txbNombre.getText()
                 + "','" + comboTipoId.getSelectedItem() + "','" + txbfolioId.getText() + "')";
-        System.out.println(cmd);
         conn.insert(cmd);
-        super.dispose();
-        
+        super.dispose();        
     }//GEN-LAST:event_botonGuardarMouseClicked
-
+    // controlador del boton Cancelar, cierra la vista en pantalla
     private void botonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseClicked
         super.dispose();
     }//GEN-LAST:event_botonCancelarMouseClicked
 
+    //controlador del boton guardar cambios, solicita la conexion a la base de datos
+    // y ordena un update a la base
     private void botonGuardarCambioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonGuardarCambioMouseClicked
+        if((txbNombre.getText().isEmpty())||(txbfolioId.getText().isEmpty())){
+            JFrame frame = null;
+            JOptionPane.showMessageDialog(frame, "Debes llenar todos los datos para continuar", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        } 
         ConexionSQL conn = ConexionSQL.getConexionSQL();
         String cmd = "UPDATE PROVEEDORES SET NOMBRE='" + txbNombre.getText() + "',TIPOID='"
                 + comboTipoId.getSelectedItem() + "', FOLIOID='" + txbfolioId.getText()
                 + "' WHERE CLAVEPROVEEDOR=" + txbClaveProveedor.getText();
-        System.out.println(cmd);
         conn.update(cmd);
         super.dispose();
     }//GEN-LAST:event_botonGuardarCambioMouseClicked
 
+    // Metodo inciar: se implementa de la interface IVista, recibe la ventana generada por la fabrica
+    // abstracta contenida en el controlador ControladorConsultaProveedores. Se conecta a la base de datos
+    // para obtener la clave del ultimo registro en la tabla Proveedores para mostrar la clave del siguiente
+    // material
     @Override
-    public void iniciar() {
-        VistaProveedor vistaProveedor = new VistaProveedor();
+    public void iniciar(IVista vistaP) {
+        VistaProveedor vistaProveedor = (VistaProveedor)vistaP;
         vistaProveedor.setVisible(true);
         int ClaveSiguienteProveedor = ConexionSQL.obtenerClave("SELECT MAX(CLAVEPROVEEDOR) FROM PROVEEDORES")+1;
-        vistaProveedor.txbClaveProveedor.setText(String.valueOf(ClaveSiguienteProveedor));
-        System.out.println("Ha iniciado la pantalla VistaProveedor");
-        vistaProveedor.botonGuardarCambio.setVisible(false);
-        
-        
-        
+        vistaProveedor.txbClaveProveedor.setText(String.valueOf(ClaveSiguienteProveedor));        
+        vistaProveedor.botonGuardarCambio.setVisible(false);  
     }
-
+    
+    // Metodo modificar: se implementa de la interface IVista, recibe la ventana generada por la fabrica
+    // abstracta contenida en el controlador ControladorConsultaProveedores, la consulta de proveedores y
+    // el indice del registro seleccionado dentro del Jtable1
     @Override
     public void modificar(IConsulta consultaProveedores, IVista vProveedor, int row) {
                 
@@ -206,7 +232,6 @@ public class VistaProveedor extends javax.swing.JFrame implements IVista {
         
         vistaProveedor.setVisible(true);
 
-        System.out.println("La linea Seleccionada es " + row);
         String claveProveedor = consultaP.jTable1.getValueAt(row, 0).toString();
         String nombre = consultaP.jTable1.getValueAt(row, 1).toString();
         String tipoId = consultaP.jTable1.getValueAt(row, 2).toString();
@@ -237,36 +262,5 @@ public class VistaProveedor extends javax.swing.JFrame implements IVista {
     public javax.swing.JTextField txbNombre;
     public javax.swing.JTextField txbfolioId;
     // End of variables declaration//GEN-END:variables
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaProveedor().setVisible(true);
-            }
-        });
-    }
+   
 }

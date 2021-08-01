@@ -1,17 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * interface de la fabrica abstracta, se implementa en las clases FabricaProveedor y FabricaMaterial
  */
 package fabricaVentanas;
 
 /**
- *
- * @author /**
+ * Autor: Jesus Armando Mendoza Romero a171117 Ingenieria en Software Virtual
+ * Materia: Diseño de Intefases Docente: Ing.Mario Andres Cuevas Gutierrez
  */
 public interface IFabrica {
-    
+
     public IVista crearVista();
+
     public IConsulta crearConsulta();
-    
+
 }

@@ -1,13 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta clase representa un material reciclado
  */
 package modelo;
 
 /**
- *
- * @author /**
+ * Autor: Jesus Armando Mendoza Romero
+ * a171117
+ * Ingenieria en Software Virtual
+ * Materia: Diseño de Intefases
+ * Docente: Ing.Mario Andres Cuevas Gutierrez
  */
 public class Material {
     

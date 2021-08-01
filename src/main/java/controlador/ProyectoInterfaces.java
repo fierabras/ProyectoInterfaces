@@ -1,24 +1,22 @@
 /*
- * Esta es la clase Main donde inicia el programa
+ * Esta es la clase principal donde inicia el programa, inicia el controlador
+ * para dar seguimiento a las acciones sobre los botones de la ventana principal
  */
 package controlador;
 
 import vista.VentanaPrincipal;
 
 /**
- * Jesus Armando Mendoza Romero
- * A171117
- * Diseño de Interfaces - virtual
- * Ingenieria de Software - Universidad Autónoma de Chihuahua
- * */
+ * Autor: Jesus Armando Mendoza Romero a171117 Ingenieria en Software Virtual
+ * Materia: Diseño de Intefases Docente: Ing.Mario Andres Cuevas Gutierrez
+ */
 public class ProyectoInterfaces {
-    
-    public static void main(String[] args){
-        
+
+    public static void main(String[] args) {
+
         VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
-        ventanaPrincipal.setVisible(true);        
-        ControladorVentanaPrincipal controlVentanaPrincipal = new ControladorVentanaPrincipal(ventanaPrincipal);       
-        
+        ventanaPrincipal.setVisible(true);
+        ControladorVentanaPrincipal controlVentanaPrincipal = new ControladorVentanaPrincipal(ventanaPrincipal);
     }
-    
+
 }

@@ -1,44 +1,23 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta clase genera las fabricas que producen las ventanas de proveedores o materiales
  */
 package fabricaVentanas;
 
 /**
- *
- * @author /**
+ * Autor: Jesus Armando Mendoza Romero a171117 Ingenieria en Software Virtual
+ * Materia: Diseño de Intefases Docente: Ing.Mario Andres Cuevas Gutierrez
  */
 public class GeneradorFabricas {
-    
-    private IFabrica fabrica;
-    private IVista vistaProveedor;
-    private IConsulta consultaProveedores;
-    
-    public static IFabrica getFabrica(String param){
-        if (param == "proveedores"){
+
+    // el método getFabrica recibe como parametro un String que indica el tipo de fabrica a generar
+    public static IFabrica getFabrica(String param) {
+        if (param == "proveedores") {
             return new FabricaProveedor();
         }
-        if (param== "materiales"){
+        if (param == "materiales") {
             return new FabricaMaterial();
         }
         return null;
     }
-    
-    
-    
-    
-    public void AplicacionFabrica(IFabrica fabrica){
-        this.fabrica = fabrica;
-    
-    }
-    
-    public void crearVista(){
-        this.vistaProveedor = fabrica.crearVista();
-    }
-    
-    public void iniciar(){
-        vistaProveedor.iniciar();
-    }
-    
+
 }

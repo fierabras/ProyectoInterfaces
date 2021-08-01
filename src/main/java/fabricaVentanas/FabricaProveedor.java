@@ -1,13 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * implementación de la fabrica abstracta, es una clase concreta que genera vistas o consultas
+ * para proveedores
  */
 package fabricaVentanas;
 
 /**
- *
- * @author /**
+ * Autor: Jesus Armando Mendoza Romero a171117 Ingenieria en Software Virtual
+ * Materia: Diseño de Intefases Docente: Ing.Mario Andres Cuevas Gutierrez
  */
 public class FabricaProveedor implements IFabrica {
 
@@ -20,5 +19,5 @@ public class FabricaProveedor implements IFabrica {
     public IConsulta crearConsulta() {
         return new ConsultaProveedores();
     }
-    
+
 }
