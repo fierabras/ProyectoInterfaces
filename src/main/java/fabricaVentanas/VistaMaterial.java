@@ -184,6 +184,8 @@ public class VistaMaterial extends javax.swing.JFrame implements IVista {
         VistaMaterial vistaMaterial;
         vistaMaterial = new VistaMaterial();
         vistaMaterial.setVisible(true);
+        int ClaveSiguienteProveedor = ConexionSQL.obtenerClave("SELECT MAX(CLAVEMATERIAL) FROM MATERIALES")+1;
+        vistaMaterial.txbClaveMaterial.setText(String.valueOf(ClaveSiguienteProveedor));
         vistaMaterial.botonGuardarCambio.setVisible(false);
 
         System.out.println("Ha iniciado la pantalla VistaMaterial");

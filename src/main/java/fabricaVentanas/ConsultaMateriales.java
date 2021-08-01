@@ -41,6 +41,7 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
         txbBuscar = new javax.swing.JTextField();
         botonBuscar = new javax.swing.JButton();
         botonModificarMaterial = new javax.swing.JButton();
+        botonActualizarConsulta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -74,6 +75,14 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
             }
         });
 
+        botonActualizarConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh24x24.png"))); // NOI18N
+        botonActualizarConsulta.setText("Actualizar");
+        botonActualizarConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonActualizarConsultaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -81,8 +90,10 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(botonNuevoMaterial)
-                .addGap(51, 51, 51)
+                .addGap(27, 27, 27)
                 .addComponent(botonModificarMaterial)
+                .addGap(34, 34, 34)
+                .addComponent(botonActualizarConsulta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -97,7 +108,8 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
                     .addComponent(botonNuevoMaterial)
                     .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonBuscar)
-                    .addComponent(botonModificarMaterial))
+                    .addComponent(botonModificarMaterial)
+                    .addComponent(botonActualizarConsulta))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -126,7 +138,7 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,6 +166,10 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
                 consultarTabla(); 
             }
     }//GEN-LAST:event_txbBuscarKeyPressed
+
+    private void botonActualizarConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonActualizarConsultaMouseClicked
+        consultarTabla();
+    }//GEN-LAST:event_botonActualizarConsultaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -238,6 +254,7 @@ public class ConsultaMateriales extends javax.swing.JFrame implements IConsulta 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton botonActualizarConsulta;
     public javax.swing.JButton botonBuscar;
     public javax.swing.JButton botonModificarMaterial;
     public javax.swing.JButton botonNuevoMaterial;

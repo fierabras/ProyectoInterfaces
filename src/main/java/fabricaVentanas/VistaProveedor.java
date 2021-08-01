@@ -182,6 +182,8 @@ public class VistaProveedor extends javax.swing.JFrame implements IVista {
     public void iniciar() {
         VistaProveedor vistaProveedor = new VistaProveedor();
         vistaProveedor.setVisible(true);
+        int ClaveSiguienteProveedor = ConexionSQL.obtenerClave("SELECT MAX(CLAVEPROVEEDOR) FROM PROVEEDORES")+1;
+        vistaProveedor.txbClaveProveedor.setText(String.valueOf(ClaveSiguienteProveedor));
         System.out.println("Ha iniciado la pantalla VistaProveedor");
         vistaProveedor.botonGuardarCambio.setVisible(false);
         

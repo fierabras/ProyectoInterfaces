@@ -114,11 +114,11 @@ public class ConexionSQL {
         }
     };
     
-    public int obtenerClave(String sentencia) {
+    public static int obtenerClave(String sentencia) {
         int claveSiguiente = 0;
         String sql = sentencia;
         
-        try (Connection conn = this.conectar();
+        try (Connection conn = ConexionSQL.conectar();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){           
             

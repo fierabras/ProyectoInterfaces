@@ -40,6 +40,7 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
         txbBuscar = new javax.swing.JTextField();
         botonBuscar = new javax.swing.JButton();
         botonModificarProveedor = new javax.swing.JButton();
+        botonActualizarConsulta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -68,6 +69,14 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
         botonModificarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/alterUser24x24.png"))); // NOI18N
         botonModificarProveedor.setText("Modificar Proveedor");
 
+        botonActualizarConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh24x24.png"))); // NOI18N
+        botonActualizarConsulta.setText("Actualizar");
+        botonActualizarConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonActualizarConsultaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -77,7 +86,9 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
                 .addComponent(botonNuevoProveedor)
                 .addGap(28, 28, 28)
                 .addComponent(botonModificarProveedor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(botonActualizarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonBuscar)
@@ -91,7 +102,8 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
                     .addComponent(botonNuevoProveedor)
                     .addComponent(txbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonBuscar)
-                    .addComponent(botonModificarProveedor))
+                    .addComponent(botonModificarProveedor)
+                    .addComponent(botonActualizarConsulta))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -145,6 +157,10 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
             }
     }//GEN-LAST:event_txbBuscarKeyPressed
 
+    private void botonActualizarConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonActualizarConsultaMouseClicked
+        consultarTabla(); 
+    }//GEN-LAST:event_botonActualizarConsultaMouseClicked
+
 
 
     @Override
@@ -193,6 +209,7 @@ public class ConsultaProveedores extends javax.swing.JFrame implements IConsulta
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton botonActualizarConsulta;
     public javax.swing.JButton botonBuscar;
     public javax.swing.JButton botonModificarProveedor;
     public javax.swing.JButton botonNuevoProveedor;
